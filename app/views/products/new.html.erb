@@ -19,7 +19,7 @@
   <p id="description"></p>
   <p id="price"></p>
   <p id="inventory"></p>
-  
+
 
 
 <script type="text/javascript" charset="utf-8">
@@ -29,7 +29,10 @@
       var values = $(this).serialize();
       var new_product = $.post('/products', values)
       new_product.done(function(data) {
-        
+        $('#productName').text(data["name"]);
+        $('#description').text(data["description"]);
+        $('#price').text(data["price"]);
+        $('#inventory').text(data["inventory"]);
       });
     });
   });
